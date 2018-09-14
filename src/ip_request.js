@@ -1,18 +1,24 @@
 import fetch from 'node-fetch';
 
-const buildRes = async obj => ({ country: obj.country, city: obj.city, region: obj.regionName });
+export class GetInfoByIp {
+  constructor(ip, uri) {
+    this.ip = ip;
+    this.uri = uri;
+  }
+  // eslint-disable-next-line
+  buildresponse(data) {
+    return { country: data.country, city: data.city, region: data.regionName };
+  }
 
-const getInfoByIp = async (ip) => {
-  const getLocation = async (url) => {
+  async getLocation() {
     try {
-      const response = await fetch(url);
+      const response = await fetch(`${this.uri}${this.ip}`);
       const json = await response.json();
-      return await buildRes(json);
+      return await this.buildresponse(json);
     } catch (error) {
       return error;
     }
-  };
-  return getLocation(`http://ip-api.com/json/${ip}`);
-};
+  }
+}
 
-export default getInfoByIp;
+export default GetInfoByIp;

@@ -2,7 +2,7 @@ Examples:
 
 ```js
 const ip = '134.234.3.8';
-const Location = getInfoByIp(ip);
+const Location = await getInfoByIp(ip);
 console.log(`из города ${Location.city}, в ${Location.region} ${Location.country}`)
 // из города Sierra Vista (Fort Huachuca), в Arizona United States
 ```
