@@ -1,3 +1,3 @@
-import getInfoByIp from './ip_request';
+import getInfoByIp from './ip_geo';
 
 export default getInfoByIp;

@@ -1,8 +1,10 @@
-Examples:
+IP Geo
 
 ```js
-const ip = '134.234.3.8';
-const Location = await getInfoByIp(ip);
+const ip = '134.234.3.2';
+const url = 'http://ip-api.com/json/';
+const userInfo = new GetInfoByIp(ip, url);
+const Location = await userInfo.getLocation();
 console.log(`из города ${Location.city}, в ${Location.region} ${Location.country}`)
 // из города Sierra Vista (Fort Huachuca), в Arizona United States
 ```
