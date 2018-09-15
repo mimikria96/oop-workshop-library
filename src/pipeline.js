@@ -14,13 +14,17 @@ const plural = (str, symbol) => {
 };
 
 const main = () => {
-  const files = fs.readdirSync('.');
-  return files
-    |> (x => _.filter(x, str => _.startWith(str, '.')))
-    |> _.sort
-    |> getMiddle
-    |> (x => plural(x, 's'))
-    |> _.toUpper
-    |> console.log;
+  fs.readdir('.', (err, res) => {
+    if (err) {
+      throw Error(err);
+    }
+    return res
+        |> (x => _.filter(x, str => _.startWith(str, '.')))
+        |> _.sort
+        |> getMiddle
+        |> (x => plural(x, 's'))
+        |> _.toUpper
+        |> console.log;
+  });
 };
 export default main;
