@@ -16,7 +16,7 @@ export class GetInfoByIp {
       const json = await response.json();
       return await this.buildresponse(json);
     } catch (error) {
-      return error;
+      throw Error(error);
     }
   }
 }
