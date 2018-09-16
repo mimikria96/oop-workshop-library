@@ -1,9 +1,9 @@
 import getServices from './parsers';
 
 export default class Weather {
-  constructor(def = 'metaWeatherOne', services) {
+  constructor(services, def = 'metaWeatherOne') {
     this.serviceName = def;
-    this.services = services ? { ...getServices(), services } : getServices();
+    this.services = services ? { ...getServices(), ...services } : getServices();
   }
 
   async getWeather(ip, service, httpClient) {
