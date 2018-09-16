@@ -1,14 +1,18 @@
+import fetch from 'node-fetch';
 import parseWeatherOne from './parsers/weatherOneParser';
 import parseWeatherTwo from './parsers/weatherTwoParser';
 
-const parsers = {
-  metaWeatherOne: parseWeatherOne,
-  metaWeatherTwo: parseWeatherTwo,
-  default: parseWeatherOne,
-};
+export default class Weather {
+  constructor(parser) {
+    this.parsers = {
+      metaWeatherOne: parseWeatherOne,
+      metaWeatherTwo: parseWeatherTwo,
+      default: parseWeatherOne,
+    };
+    this.currentParser = parser || 'default';
+  }
 
-export default async (ip, parser) => {
-  console.log(parsers[parser]);
-  return parsers[parser](ip);
-};
-console.log('aa');
+  async getWeather(ip, parser, httpClient = fetch) {
+    return this.parsers[parser || this.currentParser](ip, httpClient);
+  }
+}
