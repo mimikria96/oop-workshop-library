@@ -3,8 +3,7 @@
 import program from 'commander';
 import getWeather from '../weather';
 
-console.log('tst');
-export default program
+program
   .version('0.1.0')
   .description('Return weather by ip')
   .arguments('<firstConfig>')

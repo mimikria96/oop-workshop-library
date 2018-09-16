@@ -8,8 +8,8 @@ export class GetInfoByIp {
 
   async getLocation(ip, httpClient) {
     try {
-      const slave = httpClient || fetch;
-      const response = await slave(`http://ip-api.com/json/${ip}`);
+      const request = httpClient || fetch;
+      const response = await request(`http://ip-api.com/json/${ip}`);
       const json = await response.json();
       return await this.buildresponse(json);
     } catch (error) {
