@@ -1,14 +1,9 @@
 import fetch from 'node-fetch';
-import parseWeatherOne from './parsers/weatherOneParser';
-import parseWeatherTwo from './parsers/weatherTwoParser';
+import parsers from './parsers';
 
 export default class Weather {
   constructor(parser) {
-    this.parsers = {
-      metaWeatherOne: parseWeatherOne,
-      metaWeatherTwo: parseWeatherTwo,
-      default: parseWeatherOne,
-    };
+    this.parsers = parsers();
     this.currentParser = parser || 'default';
   }
 
