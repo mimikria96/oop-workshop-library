@@ -1,6 +1,6 @@
 {
   "name": "oop-workshop-library",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "hexlet": "dist/bin/oop-hexlet.js"
+    "getWeather": "dist/bin/weatherCli.js"
   },
   "files": [
     "dist"
@@ -47,7 +47,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "commander": "^2.18.0",
     "lodash": "^4.17.11",
+    "nock": "^10.0.0",
     "node-fetch": "^2.2.0"
   }
 }

@@ -13,18 +13,19 @@ const plural = (str, symbol) => {
   return `${str}${symbol}`;
 };
 
-const main = () => {
-  fs.readdir('.', (err, res) => {
+const main = async () => {
+  const file = await fs.readdir('.', (err, res) => {
     if (err) {
       throw Error(err);
     }
-    return res
-        |> (x => _.filter(x, str => _.startWith(str, '.')))
-        |> _.sort
-        |> getMiddle
-        |> (x => plural(x, 's'))
-        |> _.toUpper
-        |> console.log;
+    return res;
   });
+  return file
+  |> (x => _.filter(x, str => _.startWith(str, '.')))
+  |> _.sort
+  |> getMiddle
+  |> (x => plural(x, 's'))
+  |> _.toUpper
+  |> console.log;
 };
 export default main;
