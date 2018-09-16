@@ -1,13 +1,16 @@
 import fetch from 'node-fetch';
-import parsers from './parsers';
+import Parsers from './parsers';
 
 export default class Weather {
-  constructor(parser) {
-    this.parsers = parsers();
-    this.currentParser = parser || 'default';
+  constructor(service) {
+    this.services = new Parsers();
+    this.currentParser = service || 'default';
   }
 
-  async getWeather(ip, parser, httpClient = fetch) {
-    return this.parsers[parser || this.currentParser](ip, httpClient);
+  async getWeather(ip, service, httpClient = fetch) {
+    if (service && !this.services.getParsers()[service]) {
+      this.services.addParser(service);
+    }
+    return this.services.getParsers()[service || this.currentParser](ip, httpClient);
   }
 }
