@@ -1,4 +1,4 @@
-import parseWeatherOne from './weatherOneParser';
-import parseWeatherTwo from './weatherTwoParser';
+import parseWeatherOne from './weatherOne';
+import parseWeatherTwo from './weatherTwo';
 
-export default () => ({ metaWeatherOne: parseWeatherOne, metaWeatherTwo: parseWeatherTwo });
+export default () => ({ openWeather: parseWeatherOne, metaWeather: parseWeatherTwo });
