@@ -1,6 +1,6 @@
 ## **Install**
 
-Midule: `npm install --save oop-workshop-library`
+Module: `npm install --save oop-workshop-library`
 
 ## **Use**
 
@@ -18,13 +18,19 @@ const response = await userInfo.getLocation(ip);
 
 **Weather**
 
+ClI:
+`npm install -g oop-workshop-library`  
+
+`getWeather city -s service`
+
 Module:
 ```js
 import { Weather } from 'oop-workshop-library';
 const weather = new Weather();
 const response = await weather.getWeather('berlin', service --optional);
 ```
-Services:
+Services:  
+
  `openWeather - default,  
  metaWeather`  
 
@@ -36,8 +42,6 @@ const myService = (city) => {
 const weather = new Weather({ serviceName: myService }, defaultService --optional);
 const response = await weather.getWeather('berlin');
 ```
-ClI: `npm install -g oop-workshop-library`
-`getWeather city -s service`
 
 
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
