@@ -1,5 +1,5 @@
 import nock from 'nock';
-import GetInfoByIp from '../src/infoByIp/getInfoByIp';
+import GetInfoByIp from '../src/infoByIp';
 
 
 describe('Request', () => {
