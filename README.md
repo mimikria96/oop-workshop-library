@@ -1,6 +1,8 @@
 ## **Install**
 
-Module: `npm install --save oop-workshop-library`
+Module:
+
+`npm install --save oop-workshop-library`
 
 ## **Use**
 
@@ -18,7 +20,8 @@ const response = await userInfo.getLocation(ip);
 
 **Weather**
 
-ClI:
+CLI:   
+
 `npm install -g oop-workshop-library`  
 
 `getWeather city -s service`
