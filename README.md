@@ -1,13 +1,40 @@
-IP Geo
+## **Install**
 
+Midule: `npm install --save oop-workshop-library`
+
+## **Use**
+
+**GetInfoByIp**
+____
 ```js
-const ip = '134.234.3.2';
-const url = 'http://ip-api.com/json/';
-const userInfo = new GetInfoByIp(ip, url);
-const Location = await userInfo.getLocation();
-console.log(`из города ${Location.city}, в ${Location.region} ${Location.country}`)
-// из города Sierra Vista (Fort Huachuca), в Arizona United States
+import { GetInfoByIp } from 'oop-workshop-library';
+const userInfo = new GetInfoByIp();
+const response = await userInfo.getLocation(ip);
+/* { country: countryName,
+    city: cityName,
+    region: regionName }
+*/
 ```
+
+**Weather**
+____
+Module:
+```js
+import { Weather } from 'oop-workshop-library';
+const weather = new Weather();
+const response = await weather.getWeather('berlin', service --optional);
+```
+Services: `openWeather - default, metaWeather`
+You can add your custom service:
+```js
+const myService = (city) => {
+  ...
+}
+const weather = new Weather({ serviceName: myService }, defaultService --optional);
+const response = await weather.getWeather('berlin');
+```
+ClI: `npm install -g oop-workshop-library`
+`getWeather city -s service`
 
 
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
