@@ -5,7 +5,7 @@ Midule: `npm install --save oop-workshop-library`
 ## **Use**
 
 **GetInfoByIp**
-____
+
 ```js
 import { GetInfoByIp } from 'oop-workshop-library';
 const userInfo = new GetInfoByIp();
@@ -17,14 +17,17 @@ const response = await userInfo.getLocation(ip);
 ```
 
 **Weather**
-____
+
 Module:
 ```js
 import { Weather } from 'oop-workshop-library';
 const weather = new Weather();
 const response = await weather.getWeather('berlin', service --optional);
 ```
-Services: `openWeather - default, metaWeather`
+Services:
+ `openWeather - default,  
+ metaWeather`  
+
 You can add your custom service:
 ```js
 const myService = (city) => {
