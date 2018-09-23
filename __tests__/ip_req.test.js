@@ -1,5 +1,5 @@
 import nock from 'nock';
-import GetInfoByIp from '../src';
+import GetInfoByIp from '../src/infoByIp/getInfoByIp';
 
 
 describe('Request', () => {
@@ -23,9 +23,9 @@ describe('Request', () => {
     expect(response.city).toBe(city);
   });
   it('dependency injection test', async () => {
-    const diFetch = () => new Promise(resolve => resolve({ json: () => ({ city: 'Sierra Vista (Fort Huachuca)', country: 'United States' }) }));
+    const diAxios = () => new Promise(resolve => resolve({ data: { city: 'Sierra Vista (Fort Huachuca)', country: 'United States' } }));
     const userInfo = new GetInfoByIp();
-    const response = await userInfo.getLocation(ip, diFetch);
+    const response = await userInfo.getLocation(ip, diAxios);
     expect(response.city).toBe('Sierra Vista (Fort Huachuca)');
   });
 });

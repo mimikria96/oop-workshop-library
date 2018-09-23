@@ -1,16 +1,19 @@
 {
   "name": "oop-workshop-library",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "eslint": "eslint",
-    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "build": "babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
   "bin": {
     "getWeather": "dist/bin/weatherCli.js"
+  },
+  "engines": {
+    "node": ">=8"
   },
   "files": [
     "dist"
@@ -29,11 +32,12 @@
   },
   "homepage": "https://github.com/mimikria96/oop-workshop-library#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/node": "^7.0.0",
     "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "babel-core": "^7.0.0-0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "debug": "^4.0.1",
@@ -46,10 +50,9 @@
     "jest-cli": "^23.6.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "axios": "^0.18.0",
     "commander": "^2.18.0",
-    "esm": "^3.0.82",
-    "lodash": "^4.17.11",
-    "nock": "^10.0.0",
-    "node-fetch": "^2.2.0"
+    "nock": "^10.0.0"
   }
 }

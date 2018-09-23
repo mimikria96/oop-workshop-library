@@ -1,3 +1,5 @@
-import getInfoByIp from './getInfoByIp';
+import Weather from './weather';
+import GetInfoByIp from './infoByIp';
 
-export default getInfoByIp;
+
+export { GetInfoByIp, Weather };
